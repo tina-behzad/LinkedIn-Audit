@@ -12,7 +12,7 @@ load_dotenv()
 if __name__ == '__main__':
     location = "X"
     db_connection = Database("./data/sqlite/linkedin.db")
-    queries = db_connection.get_query_batch(8)
+    queries = db_connection.get_query_batch("#QUERY_BATCH_NUMBER")
     scraper = LinkedInScraper(os.getenv("LINKEDIN_USERNAME"), os.getenv("LINKEDIN_PASS"), db_connection)
     scraper.two_step_verification(os.getenv("LINKEDIN_SECRET_KEY"))
     time.sleep(random.uniform(4, 8))
